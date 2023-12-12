@@ -118,6 +118,92 @@ Name | Type | Description
 ---|---|---
 `resolutions` | array | The resolutions used to define available zoom levels for the map. The resolutions should be valid for the base maps.
 
+### source
+
+Sources defined for the map are named under source. Each source is available for a layer by referencing its name.
+
+Name | Description
+---|---
+`source` | name of the source.
+
+**WFS options**
+
+Property | Description
+---|---
+`url` | url to the wfs endpoint.
+`strategy` | the ol.loadingstrategy for the layer. Can also be set on layer. The options are tile, bbox or all. Default is bbox.
+`requestMethod` | request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
+`clusterOptions` | options for clustering. See the settings page for details.
+
+**AGS_FEATURE options**
+
+Property | Description
+---|---
+`url` | url to the ArcGIS Server endpoint.
+`clusterOptions` | options for clustering. See the settings page for details.
+
+**VECTORTILE options**
+
+Property options | Description
+---|---
+`url` | url to the vector tiles endpoint. E.g. http://yourhost/geoserver/gwc/service/tms/1.0.0/
+`tileGrid` | custom tileGrid for the vector tile source. extent, alignBottomLeft, resolutions and tileSize can be set.
+
+**WMS options**
+
+Property options | Description
+---|---
+`url` | url to the wms endpoint.
+`format` | the image format used for the layer unless format is set on layer-level. Default is 'image/png'.
+`requestMethod` | request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
+`version` | the OGC WMS version. Default is 1.1.1.
+`tileGrid` | custom tileGrid for the WMS source. extent, alignBottomLeft, resolutions and tileSize can be set.
+
+**WMTS options**
+
+Property options | Description
+---|---
+`url` | url to the wmts endpoint.
+`format` | the image format used for the layer unless format is set on layer-level. Default is 'image/png'.
+`version` | the OGC WMS version. Default is 1.1.1.
+`matrixSet` | the named matrixSet if provided for the source. Default matrixSet is the matrixSet created for the map and depends on the map resolutions.
+`matrixIdsPrefix` | the named prefix for tileMatrix. Default matrixIdsPrefix is the maps projection code.
+`resolutions` | Array of resolutions. Defaults to map resolutions.
+`origin` | Origin of the gridset. Defaults to topleft corner of the projections extent.
+`tileSize` | Array of tileSizes. Defaults to [256,256].
+
+**XYZ options**
+
+Property | Description
+---|---
+`url` | url to the xyz endpoint. Used with or instead of layerURL. Optional if layerURL is set.
+`tileGrid` | custom tileGrid for the XYZ source. extent, alignBottomLeft, resolutions and tileSize can be set.
+
+**AGS_MAP options**
+
+Property | Description
+---|---
+`url` | url to the ArcGIS Server endpoint.
+`tileGrid` | custom tileGrid for the AGS tile source. extent, alignBottomLeft, resolutions and tileSize can be set.
+
+#### Example defining sources
+
+```json
+{
+  "source": {
+    "local_wms": {
+      "url": "http://localhost/geoserver/origo/wms",
+      "version": "1.3.0",
+      "workspace": "origo"
+    },
+    "local_wmts": {
+      "url": "http://localhost/geowebcache/service/wmts",
+      "format": "image/jpg"
+    }
+  }
+}
+```
+
 ### groups
 
 Name | Type | Description

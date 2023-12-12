@@ -185,13 +185,6 @@ Property | Description
 `isTable`| Bool that indicates if the geometry should be ignored. Implies _visible_. Only useful when layer is a child in related layers. Optional. defaults to `false`
 `relatedLayers`| Array of [relatedLayers](#Related-layers) objects defining child layers. Optional
 
-Source options | Description
----|---
-`url` | url to the wfs endpoint
-`strategy` | the ol.loadingstrategy for the layer. Can also be set on layer. The options are tile, bbox or all. Default is bbox.
-`requestMethod` | request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
-`clusterOptions` | options for clustering. See the settings page for details.
-
 #### Basic example WFS
 
 ```json
@@ -280,11 +273,6 @@ Property | Description
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
 
-Source options | Description
----|---
-`url` | url to the ArcGIS Server endpoint
-`clusterOptions` | options for clustering. See the settings page for details.
-
 #### Basic example AGS_FEATURE
 
 ```json
@@ -336,11 +324,6 @@ Property | Description
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
-
-Source options | Description
----|---
-`url` | url to the vector tiles endpoint. E.g. http://yourhost/geoserver/gwc/service/tms/1.0.0/
-`tileGrid` | custom tileGrid for the vector tile source. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 #### Basic example VECTORTILE
 
@@ -394,14 +377,6 @@ Property | Description
 `imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
 `requestMethod` | request method for this layer. Can be set to 'post', otherwise it will be 'get'. Default is 'get'.
 `sourceParams` | A object with any additional params that can be added to the source and sent to the WMS server. For example CQL_FILTER can be provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html) and there by filter on which objects should be included on a Geoserver layer. For a QGIS Server the param FILTER can be used in a similar maner, the syntax should be in OGC filter format. Other server specific params can also be set as DPI, BGCOLOR oc OPACITIES. Optional.
-
-Source options | Description
----|---
-`format` | the image format used for the layer unless format is set on layer-level. Default is 'image/png'.
-`requestMethod` | request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
-`url` | url to the wms endpoint
-`version` | the OGC WMS version. Default is 1.1.1.
-`tileGrid` | custom tileGrid for the WMS source. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 #### Basic example WMS
 
@@ -509,16 +484,6 @@ Property | Description
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
 
-Source options | Description
----|---
-`url` | url to the wmts endpoint
-`matrixSet` | the named matrixSet if provided for the source. Default matrixSet is the matrixSet created for the map and depends on the map resolutions.
-`matrixIdsPrefix` | the named prefix for tileMatrix. Default matrixIdsPrefix is the maps projection code.
-`resolutions` | Array of resolutions. Defaults to map resolutions.
-`origin` | Origin of the gridset. Defaults to topleft corner of the projections extent.
-`tileSize` | Array of tileSizes. Defaults to [256,256].
-
-
 #### Basic example WMTS
 
 ```json
@@ -553,11 +518,6 @@ Property | Description
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `tileGrid` | If layers tilegrid differs from the map. Optional.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
-
-Source options | Description
----|---
-`url` | url to the xyz endpoint. Used with or instead of layerURL. Optional if layerURL is set.
-`tileGrid` | custom tileGrid for the XYZ source. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 #### Basic example XYZ
 
@@ -603,11 +563,6 @@ Property | Description
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
 `imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
-
-Source options | Description
----|---
-`url` | url to the ArcGIS Server endpoint
-`tileGrid` | custom tileGrid for the AGS tile source. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 #### Basic example AGS_MAP
 
@@ -699,25 +654,6 @@ Property | Description
   		"type": "WFS"
 	}
 	]
-}
-```
-
-## Source
-
-Sources defined for the map are named under source. Each source is available for a layer by referencing its name.
-
-#### Example defining sources
-
-```json
-{
-  "source": {
-    "local_wms": {
-      "url": "http://localhost/geoserver/origo/wms"
-    },
-    "local_wmts": {
-      "url": "http://localhost/geowebcache/service/wmts"
-    }
-  }
 }
 ```
 
