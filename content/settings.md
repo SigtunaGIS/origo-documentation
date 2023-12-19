@@ -133,14 +133,15 @@ Property | Description
 `url` | url to the wfs endpoint.
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on layer. The options are tile, bbox or all. Default is bbox.
 `requestMethod` | request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
-`clusterOptions` | options for clustering. See the settings page for details.
+`clusterOptions` | options for clustering. See [clusterOptions](#clusterOptions) for details.
+`capabilitiesURL` | url to fetch the getCapabilities document from the web server. Can be used with separate authentication and authorization (for example [authorizationUrl](#introduction.md#creating-the-map)) to obtain a document for a user. If a layer isn't included in the user's getCapabilities document, the layer gets a padlock in the legend.
 
 **AGS_FEATURE options**
 
 Property | Description
 ---|---
 `url` | url to the ArcGIS Server endpoint.
-`clusterOptions` | options for clustering. See the settings page for details.
+`clusterOptions` | options for clustering. See [clusterOptions](#clusterOptions) for details.
 
 **VECTORTILE options**
 
@@ -158,6 +159,7 @@ Property options | Description
 `requestMethod` | request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
 `version` | the OGC WMS version. Default is 1.1.1.
 `tileGrid` | custom tileGrid for the WMS source. extent, alignBottomLeft, resolutions and tileSize can be set.
+`capabilitiesURL` | url to fetch the getCapabilities document from the web server. Can be used with separate authentication and authorization (for example [authorizationUrl](#introduction.md#creating-the-map)) to obtain document for a user. If a layer isn't included in the user's getCapabilities document, the layer gets a padlock in the legend.
 
 **WMTS options**
 
