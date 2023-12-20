@@ -342,7 +342,7 @@ Property | Description
 ### WMS
 
 Property | Type |  Default | Description
----|---
+---|---|---|---
 `name` | string || the unique name of the layer used internally and the name of the layer in the WMS service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` ||| title for the layer visible to the user.
 `abstract` | string || short description of the layer shown in the layer info. Optional.
