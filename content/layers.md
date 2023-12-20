@@ -347,28 +347,28 @@ Property | Type |  Default | Description
 `title` ||| title for the layer visible to the user.
 `abstract` | string || short description of the layer shown in the layer info. Optional.
 `type` | string | WMS | type of source for the layer. For WMS the type is WMS.
-`source` ||| named source of the layer. The [source](#source) must be defined with the layers source options.
+`source` | string || named source of the layer. The [source](#source) must be defined with the layers source options.
 `style` ||| the name of the referenced [style](#style-basics) to be used for the layer.
-`format` || 'image/png' | the image format used for the layer. Default is 'image/png' unless format is set for the source.
-`group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
-`queryable` || true | if featureinfo should be enabled for the layer. Default is true.
+`format` | string | 'image/png' | the image format used for the layer. Default is 'image/png' unless format is set for the source.
+`group` | string || group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`queryable` | string | true | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | number | 1 | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | boolean | true | if the layer should be included in the map legend. Default is false.
-`attribution` ||| attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
-`visible` ||| if the layer should be visible. Default is false.
+`attribution` | string || attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
+`visible` | boolean | false | if the layer should be visible. Default is false.
 `extent` ||| extent of the layer. Map extent is default.
-`minScale` ||| the minmum scale the layer is visible. Optional.
-`maxScale` ||| the maximum scale the layer is visible. Optional.
-`attributes` ||| definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
-`gutter` ||| gutter setting for the layer. Default is 0.
-`featureinfoLayer` ||| the named layer this layer should use for featureinfo requests. Optional.
-`stylePicker` ||| Adds a dropup with alternative styles in the layer info. Overrides `style` and `hasThemeLegend` and `legendParams`. See [stylePicker](#stylepicker). Optional.
-`searchable` ||| used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`minScale` | number || the minmum scale the layer is visible. Optional.
+`maxScale` | number || the maximum scale the layer is visible. Optional.
+`attributes` | object || definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
+`gutter` | number | 0  gutter setting for the layer. Default is 0.
+`featureinfoLayer` | string || the named layer this layer should use for featureinfo requests. Optional.
+`stylePicker` | array || Adds a dropup with alternative styles in the layer info. Overrides `style` and `hasThemeLegend` and `legendParams`. See [stylePicker](#stylepicker). Optional.
+`searchable` | boolean || used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` ||| custom tileGrid for the WMS layer. extent, alignBottomLeft, resolutions and tileSize can be set.
-`renderMode` ||| whether to render the layer tiled ('tile') or single tiled ('image'). Defaults to 'tile'.
-`removable` ||| Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
-`zoomToExtent` ||| Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
-`opacityControl` ||| Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`renderMode` | string | 'tile' | whether to render the layer tiled ('tile') or single tiled ('image'). Defaults to 'tile'.
+`removable` | boolean | false | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
+`zoomToExtent` | boolean | false | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`opacityControl` | boolean | true | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` ||| Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`||| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
 `infoFormat` ||| Origo's get feature info expects responses in 'application/json' but some WMS servers (f.e. ArcGIS) don't supply it, so it's possible here to request in format 'application/geo+json' or 'application/geojson' if the server response with that format. Optional.
