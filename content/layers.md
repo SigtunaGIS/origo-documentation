@@ -341,10 +341,10 @@ Property | Description
 ```
 ### WMS
 
-Property | Type |  Default | Description
+Name | Type |  Default | Description
 ---|---|---|---
 `name` | string || the unique name of the layer used internally and the name of the layer in the WMS service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
-`title` ||| title for the layer visible to the user.
+`title` | string || title for the layer visible to the user.
 `abstract` | string || short description of the layer shown in the layer info. Optional.
 `type` | string | WMS | type of source for the layer. For WMS the type is WMS.
 `source` | string || named source of the layer. The [source](#source) must be defined with the layers source options.
@@ -353,14 +353,14 @@ Property | Type |  Default | Description
 `group` | string || group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `queryable` | string | true | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | number | 1 | opacity of the layer. Value between 0 and 1. Default is 1.
-`legend` | boolean | true | if the layer should be included in the map legend. Default is false.
+`legend` | boolean | false | if the layer should be included in the map legend. Default is false.
 `attribution` | string || attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | boolean | false | if the layer should be visible. Default is false.
 `extent` ||| extent of the layer. Map extent is default.
 `minScale` | number || the minmum scale the layer is visible. Optional.
 `maxScale` | number || the maximum scale the layer is visible. Optional.
 `attributes` | object || definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
-`gutter` | number | 0  gutter setting for the layer. Default is 0.
+`gutter` | number | 0 | gutter setting for the layer.
 `featureinfoLayer` | string || the named layer this layer should use for featureinfo requests. Optional.
 `stylePicker` | array || Adds a dropup with alternative styles in the layer info. Overrides `style` and `hasThemeLegend` and `legendParams`. See [stylePicker](#stylepicker). Optional.
 `searchable` | boolean || used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
